@@ -3,17 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <title>Walkie Talkie</title>
+  <link rel="manifest" href="manifest.json">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <h1>📡 Walkie Talkie</h1>
-<p>Halte den Button gedrückt zum Sprechen</p>
 
-<button id="talkBtn">🎤 TALK</button>
+<p id="status">🔴 Niemand spricht</p>
+
+<button id="talkBtn">🎤 HALTEN ZUM SPRECHEN</button>
 
 <script src="/socket.io/socket.io.js"></script>
 <script src="app.js"></script>
+
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js');
+}
+</script>
 
 </body>
 </html>
