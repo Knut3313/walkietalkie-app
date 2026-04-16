@@ -6,9 +6,33 @@ const io = require("socket.io")(http);
 app.use(express.static("public"));
 
 io.on("connection", (socket) => {
-    socket.on("voice", (data) => {
-        socket.broadcast.emit("voice", data);
-    });
+
+  console.log("User connected");
+
+  socket.on("offer", data => {
+    socket.broadcast.emit("offer", data);
+  });
+
+  socket.on("answer", data => {
+    socket.broadcast.emit("answer", data);
+  });
+
+  socket.on("candidate", data => {
+    socket.broadcast.emit("candidate", data);
+  });
+
+  socket.on("speaking", data => {
+    socket.broadcast.emit("speaking", data);
+  });
+
+  socket.on("disconnect", () => {
+    console.log("User disconnected");
+  });
+
 });
 
-http.listen(3000);
+const PORT = process.env.PORT || 3000;
+
+http.listen(PORT, () => {
+  console.log(`Server läuft auf Port ${PORT}`);
+});
