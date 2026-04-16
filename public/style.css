@@ -1,16 +1,12 @@
-body {
-  text-align: center;
-  font-family: Arial, sans-serif;
-  background: #0d1117;
-  color: white;
+#status {
+  margin-top: 20px;
+  font-size: 18px;
 }
 
-button {
-  margin-top: 40px;
-  padding: 25px;
-  font-size: 24px;
-  background: green;
-  border: none;
-  border-radius: 10px;
-  color: white;
+.speaking {
+  color: #22c55e;
+}
+
+.idle {
+  color: red;
 }
